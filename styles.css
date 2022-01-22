@@ -1,0 +1,21 @@
+.navigationBar {
+  background-color: #2e3d44;
+  overflow: hidden;
+  position: fixed;
+  display: inline-block;
+  z-index: 1;
+  bottom: 0;
+  width: 80%;
+  height: 70px;
+  margin: 0 10%;
+  border: 1px solid black;
+  opacity: 0;
+}
+
+.vinhood-title {
+  display: flex;
+  justify-content: left;
+  flex-direction: column;
+  margin: 10px;
+  color: white;
+}
