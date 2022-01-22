@@ -5,13 +5,13 @@ const afterLoadPageShowVinhoodBanner = () => {
     let alreadyVisitPage = getCookie('vinhoodAlreadVisitPage');
     if (alreadyVisitPage) {
         setInterval(function () {
-           //waiting some time
+            changeOpacity(element, "1", "0.1");
         }, 1000);
     } else {
+        changeOpacity(element, "1", "0.1");
         createCookie('vinhoodAlreadVisitPage', true, 2);
         alreadyVisitPage = getCookie('vinhoodAlreadVisitPage');
     }
-    changeOpacity(element, "1", "0.1");
     element.style.bottom = "25px";
 
 };
