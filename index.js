@@ -6,7 +6,7 @@ const afterLoadPageShowVinhoodBanner = () => {
     if (alreadyVisitPage) {
         setInterval(function () {
             changeOpacity(element, "1", "0.1");
-        }, 1000);
+        }, 5000);
     } else {
         changeOpacity(element, "1", "0.1");
         createCookie('vinhoodAlreadVisitPage', true, 2);
