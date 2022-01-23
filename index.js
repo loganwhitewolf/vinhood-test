@@ -1,33 +1,36 @@
 let isScrolling;
+const heightFromTheBottom = "25px";
+const opacityMax = "1";
+const opacityMin = "0";
+const defaultTransitionTiming = "0.1";
+const intervalBeforeBarAppearAfterFirstVisit = "5000";
+const cookieDaysExpiration = 30;
+
 
 const afterLoadPageShowVinhoodBanner = () => {
     const element = document.getElementById('navigationBar');
     let alreadyVisitPage = getCookie('vinhoodAlreadVisitPage');
     if (alreadyVisitPage) {
         setInterval(function () {
-            changeOpacity(element, "1", "0.1");
-        }, 5000);
+            changeOpacity(element, opacityMax, defaultTransitionTiming);
+        }, intervalBeforeBarAppearAfterFirstVisit);
     } else {
-        changeOpacity(element, "1", "0.1");
-        createCookie('vinhoodAlreadVisitPage', true, 2);
-        alreadyVisitPage = getCookie('vinhoodAlreadVisitPage');
+        changeOpacity(element, opacityMax, defaultTransitionTiming);
+        createCookie('vinhoodAlreadVisitPage', true, cookieDaysExpiration);
     }
-    element.style.bottom = "25px";
+    element.style.bottom = heightFromTheBottom;
 
 };
 
 const manageScrollingActionForVinhoodBanner = () => {
 
     var element = document.getElementById('navigationBar');
-
-    changeOpacity(element, "0", "0.1");
-
+    changeOpacity(element, opacityMin, defaultTransitionTiming);
     // Clear our timeout throughout the scroll
     window.clearTimeout(isScrolling);
-
     // Set a timeout to run after scrolling ends
     isScrolling = setTimeout(function () {
-        changeOpacity(element, "1", "0.1");
+        changeOpacity(element, opacityMax, defaultTransitionTiming);
     }, 66);
 };
 
@@ -45,8 +48,7 @@ const createCookie = (name, value, days) => {
         var date = new Date();
         date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
         expires = "; expires=" + date.toGMTString();
-    }
-    else {
+    } else {
         expires = "";
     }
     document.cookie = name + "=" + value + expires + "; path=/";
@@ -67,5 +69,5 @@ const getCookie = (c_name) => {
     return "";
 }
 
-document.addEventListener("DOMContentLoaded", afterLoadPageShowVinhoodBanner);
+window.addEventListener("DOMContentLoaded", afterLoadPageShowVinhoodBanner);
 window.addEventListener('scroll', manageScrollingActionForVinhoodBanner, false);

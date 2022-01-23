@@ -6,29 +6,6 @@
   <link rel="stylesheet" type="text/css" href="styles.css">
   <script type="text/javascript" src="index.js"></script>
 
-	<!-- <style>
-		.navigationBar {
-			background-color: #2e3d44;
-			overflow: hidden;
-			position: fixed;
-			display: inline-block;
-			z-index: 1;
-			bottom: 0;
-			width: 80%;
-			height: 70px;
-			margin: 0 10%;
-			border: 1px solid black;
-			opacity: 0;
-		}
-
-		.vinhood-title {
-			display: flex;
-			justify-content: left;
-			flex-direction: column;
-			margin: 10px;
-			color: white;
-		}
-	</style> -->
 </head>
 
 <body>
@@ -86,87 +63,6 @@
 		<h3 class="vinhood-title">VINHOOD</h3>
 	</nav>
 
-	<!-- <script>
-		const afterLoadPageShowVinhoodBanner = () => {
-			const element = document.getElementById('navigationBar');
-			let alreadyVisitPage = getCookie('vinhoodAlreadVisitPage');
-			if (alreadyVisitPage) {
-				setInterval(function () {
-					fade(element, "1", "0.1");
-				}, 1000);
-				console.log('impostato');
-			} else {
-				console.log('non impostato');
-				fade(element, "1", "0.1");
-
-				console.log('cookie non impostato');
-				createCookie('vinhoodAlreadVisitPage', true, 2);
-				alreadyVisitPage = getCookie('vinhoodAlreadVisitPage');
-				console.log(alreadyVisitPage);
-
-			}
-			element.style.bottom = "25px";
-
-		};
-
-		const manageScrollingActionForVinhoodBanner = () => {
-
-			var element = document.getElementById('navigationBar');
-
-			fade(element, "0", "0.1");
-
-			// Clear our timeout throughout the scroll
-			window.clearTimeout(isScrolling);
-
-			// Set a timeout to run after scrolling ends
-			isScrolling = setTimeout(function () {
-				fade(element, "1", "0.1");
-			}, 66);
-		};
-
-
-		const fade = (element, opacity, timing) => {
-			element.style.opacity = opacity;
-			element.style.transition = "opacity " + timing + "s";
-			const ieOpacity = opacity * 100;
-			element.style.filter = 'alpha(opacity=' + ieOpacity + ')'; // IE fallback
-		}
-
-		const createCookie = (name, value, days) => {
-			var expires;
-			if (days) {
-				var date = new Date();
-				date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-				expires = "; expires=" + date.toGMTString();
-			}
-			else {
-				expires = "";
-			}
-			document.cookie = name + "=" + value + expires + "; path=/";
-		}
-
-		const getCookie = (c_name) => {
-			if (document.cookie.length > 0) {
-				c_start = document.cookie.indexOf(c_name + "=");
-				if (c_start != -1) {
-					c_start = c_start + c_name.length + 1;
-					c_end = document.cookie.indexOf(";", c_start);
-					if (c_end == -1) {
-						c_end = document.cookie.length;
-					}
-					return unescape(document.cookie.substring(c_start, c_end));
-				}
-			}
-			return "";
-		}
-
-		document.addEventListener("DOMContentLoaded", afterLoadPageShowVinhoodBanner);
-		// Setup isScrolling variable
-		var isScrolling;
-
-		// Listen for scroll events
-		window.addEventListener('scroll', manageScrollingActionForVinhoodBanner, false);
-	</script> -->
 </body>
 
 </html>
