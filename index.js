@@ -1,5 +1,5 @@
 let isScrolling;
-const heightFromTheBottom = "25px";
+const heightFromTheBottom = "0px";
 const opacityMax = "1";
 const opacityMin = "0";
 const defaultTransitionTiming = "0.1";
